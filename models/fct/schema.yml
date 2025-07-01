@@ -9,7 +9,7 @@ models:
         data_tests:
           - unique
           - not_null
-        data_type: number
+        data_type: integer
       - name: order_id
         description: de id van de order waartoe de orderregel behoort, moet altijd gevuld zijn, maar is niet uniek
         data_tests:
@@ -51,5 +51,5 @@ models:
         data_tests:
           - accepted_values:
               values: ['completed', 'processing', 'cancelled']
-        data_type: varchar
+        data_type: nvarchar(20)
 
