@@ -3,6 +3,5 @@ version: 2
 sources:
   - name: src
     tables:
-      - name: customers
-      - name: orders
-      - name: payments
+      - name: src_customers
+
