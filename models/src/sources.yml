@@ -4,4 +4,7 @@ sources:
   - name: src
     tables:
       - name: src_customers
-
+      - name: src_order_items
+      - name: src_orders
+      - name: src_products
+  
