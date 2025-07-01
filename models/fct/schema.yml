@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: fct_order_item
+    description: informatie over order regels
+    columns:
+      - name: id
+        description: de unieke id van een orderregel, moet altijd gevuld zijn
+        data_tests:
+          - unique
+          - not_null
+        data_type: number
+      - name: order_id
+        description: de id van de order waartoe de orderregel behoort, moet altijd gevuld zijn, maar is niet uniek
+        data_tests:
+          - not_null
+        data_type: number
+      - name: product_id
+        description: de id van het verkochte product
+        data_tests:
+          - not_null
+        data_type: number
+      - name: quantity
+        description: de bestelde hoeveelheid
+        data_type: number
+      - name: unit_price
+        description: de prijs per eenheid van het product
+      - name: amount
+        description: de totale prijs, dus quantity maal unit_price
+        data_type: decimal
+  - name: fct_order
+    description: informatie over orders
+    columns:
+      - name: id
+        description: de unieke id van een order, moet altijd gevuld zijn
+        data_tests:
+          - unique
+          - not_null
+        data_type: number
+      - name: customer_id
+        description: de id van de customer die de order heeft geplaatst, moet altijd gevuld zijn, maar is niet uniek
+        data_tests:
+          - not_null
+        data_type: number
+      - name: order_date
+        description: de datum van een order
+        data_type: date
+      - name: status
+        description: "{{ doc('status') }}"
+        data_tests:
+          - accepted_values:
+              values: ['completed', 'processing', 'cancelled']
+
