@@ -1,0 +1,20 @@
+version: 2
+
+exposures:
+  - name: order_analysis
+    type: dashboard
+    description: een dashboard voor analyse over orders
+    owner:
+      name: finance
+    depends_on:
+      - ref('fct_order')
+      - ref('fct_order_item')
+      - ref('dim_customer')
+      - ref('dim_product')
+  - name: customer_overview
+    type: dashboard
+    description: een overzicht van alle klanten
+    owner:
+      name: account management
+    depends_on:
+      - ref('dim_customer')
