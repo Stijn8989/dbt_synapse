@@ -46,6 +46,10 @@ models:
       - name: order_date
         description: de datum van een order
         data_type: date
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
       - name: status
         description: "{{ doc('status') }}"
         data_tests:
