@@ -19,10 +19,10 @@ models:
         description: de id van het verkochte product
         data_tests:
           - not_null
-        data_type: number
+        data_type: integer
       - name: quantity
         description: de bestelde hoeveelheid
-        data_type: number
+        data_type: integer
       - name: unit_price
         description: de prijs per eenheid van het product
         data_type: decimal
@@ -37,12 +37,12 @@ models:
         data_tests:
           - unique
           - not_null
-        data_type: number
+        data_type: integer
       - name: customer_id
         description: de id van de customer die de order heeft geplaatst, moet altijd gevuld zijn, maar is niet uniek
         data_tests:
           - not_null
-        data_type: number
+        data_type: integer
       - name: order_date
         description: de datum van een order
         data_type: date
