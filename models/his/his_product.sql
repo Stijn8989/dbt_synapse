@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized='incremental',
+        unique_key='id',
+        incremental_strategy='delete+insert'
+    )
+}}
+
 with cte_product as (
 
     select *

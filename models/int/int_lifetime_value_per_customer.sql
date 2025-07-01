@@ -1,24 +1,24 @@
-with stg_order as (
+with cte_order as (
 
     select *
-    from {{ ref('stg_order') }}
+    from {{ ref('his_order') }}
 
 ),
 
-stg_order_item as (
+cte_order_item as (
 
 
     select *
-    from {{ ref('stg_order_item') }}
+    from {{ ref('his_order_item') }}
 
 ),
 
-amount_per_customer_order as (
+cte_amount_per_customer_order as (
 
     select o.customer_id
         , sum(oi.amount) as amount
-    from stg_order as o
-    inner join stg_order_item as oi 
+    from cte_order as o
+    inner join cte_order_item as oi 
         on o.id = oi.order_id
     where o.status = 'completed'
     group by o.customer_id
@@ -26,4 +26,4 @@ amount_per_customer_order as (
 )
 
 select *
-from amount_per_customer_order
+from cte_amount_per_customer_order
