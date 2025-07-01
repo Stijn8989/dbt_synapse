@@ -1,4 +1,4 @@
-with stg_order as (
+with cte_order as (
 
     select *
     from {{ ref('stg_order') }}
@@ -8,4 +8,4 @@ select id
     , customer_id
     , order_date
     , status
-from stg_order
+from cte_order

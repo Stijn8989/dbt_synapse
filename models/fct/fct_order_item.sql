@@ -1,4 +1,4 @@
-with stg_order_item as (
+with cte_order_item as (
 
     select *
     from {{ ref('stg_order_item') }}
@@ -11,4 +11,4 @@ select id
     , quantity
     , unit_price
     , amount
-from stg_order_item
+from cte_order_item
