@@ -25,6 +25,7 @@ models:
         data_type: number
       - name: unit_price
         description: de prijs per eenheid van het product
+        data_type: decimal
       - name: amount
         description: de totale prijs, dus quantity maal unit_price
         data_type: decimal
@@ -50,4 +51,5 @@ models:
         data_tests:
           - accepted_values:
               values: ['completed', 'processing', 'cancelled']
+        data_type: text
 
