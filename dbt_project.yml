@@ -35,4 +35,6 @@ models:
       +schema: dim
     fct:
       +schema: fct
+      +contract: 
+        enforced: true
     
